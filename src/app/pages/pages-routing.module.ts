@@ -5,11 +5,29 @@ import { PagesComponent } from './pages.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerceComponent } from './e-commerce/e-commerce.component';
 import { NotFoundComponent } from './miscellaneous/not-found/not-found.component';
+import { HomeComponent } from './home/home.component';
+
 
 const routes: Routes = [{
   path: '',
   component: PagesComponent,
   children: [
+    //---------------------------------------   
+  {
+    path:"security",
+    loadChildren:()=>import("./security/security.module")
+    .then(m=>m.SecurityModule)
+  } ,
+  {
+    path:"result",
+    loadChildren:()=>import("./result/result.module")
+    .then(m=>m.ResultModule)
+  } ,
+  {
+    path:"home",
+    component:HomeComponent,
+  },
+  //---------------------------------------
     {
       path: 'dashboard',
       component: ECommerceComponent,

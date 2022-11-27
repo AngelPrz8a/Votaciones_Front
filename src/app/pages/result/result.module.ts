@@ -6,8 +6,10 @@ import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 import { CComponent } from './c/c.component';
 import { DComponent } from './d/d.component';
-import { NbButtonModule, NbCardModule, NbInputModule } from '@nebular/theme';
+import { NbButtonModule, NbCardModule, NbInputModule, NbSelectModule } from '@nebular/theme';
 import { FormsModule } from '@angular/forms';
+import { IndexComponent } from './index/index.component';
+import { CreateComponent } from './create/create.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { FormsModule } from '@angular/forms';
     AComponent,
     BComponent,
     CComponent,
-    DComponent
+    DComponent,
+    IndexComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
@@ -25,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NbInputModule,
     NbButtonModule,
+    NbSelectModule,
   ]
 })
 export class ResultModule { }

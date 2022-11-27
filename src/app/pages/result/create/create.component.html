@@ -1,0 +1,65 @@
+<div class="col-lg-12">
+    <nb-card>
+        
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR 
+        </nb-card-header>
+
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR 
+        </nb-card-header>
+
+        <nb-card-body>
+
+            <div class="row">
+                <div class="col-3">
+                    <label>Candidato</label>
+                </div>
+                <div class="col-9" > 
+                    <nb-select class="col-9" [(ngModel)]="request.id_candidate">
+                        <nb-option *ngFor="let candidato of candidatos" value='{{candidato["_id"]}}' >{{candidato['name'] }} {{candidato["lastname"]}}</nb-option>
+                    </nb-select>
+                    <p *ngIf="intentoEnvio && request.id_candidate==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Mesa</label>
+                </div>
+                <div class="col-9" > 
+                    <nb-select class="col-9" [(ngModel)]="request.id_table">
+                        <nb-option *ngFor="let mesa of mesas" value='{{mesa["_id"]}}' >{{mesa['tableNumber']}}</nb-option>
+                    </nb-select>
+                    <p *ngIf="intentoEnvio && request.id_table==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Votos</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.countVotes">
+
+                    <p *ngIf="intentoEnvio && request.countVotes==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <button *ngIf="modoCreacion" class="btn btn-primary btn-block"
+                (click)="create()">
+                Crear
+                </button>
+
+                <button *ngIf="!modoCreacion"
+                class="btn btn-primary btn-block" 
+                (click)="update()">
+                Actualizar
+                </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
+

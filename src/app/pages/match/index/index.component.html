@@ -1,0 +1,36 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header>
+            ADMINISTRACIÓN DE PARTIDOS
+        </nb-card-header>
+
+        <button
+        class="btn btn-primary btn-block" 
+        (click)="create()">
+        Crear
+        </button>
+
+        <table class="table">
+            <tr>
+                <th *ngFor="let nombre of nombres">{{nombre}}</th>
+            </tr>
+            <ng-container *ngFor="let resulto of resultados">
+                <tr>
+                    <td>{{resulto["name"]}}</td>
+                    <td>{{resulto["motto"]}}</td>
+                    <!-- <td>{{resulto._id}}</td> -->
+                    <td>
+                        <button
+                        class="btn btn-warning btn-block" 
+                        (click)="update(resulto._id)">
+                        Editar
+                        </button>
+                    </td>
+                    <!-- <td>
+                        <a (click)="delete(resulto._id)">Eliminar</a>
+                    </td> -->
+                </tr>
+            </ng-container>
+        </table>
+    </nb-card>
+</div>

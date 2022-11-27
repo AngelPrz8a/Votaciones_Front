@@ -1,1 +1,10 @@
-<p>Hola </p>
+<p *ngIf="valores">Hola {{userName}}, Eres un {{role}}</p>
+
+
+<ng-container *ngIf="!valores">
+    <button
+    class="btn btn-info btn-block" 
+    (click)="login()">
+    Iniciar Sesión
+    </button>
+</ng-container>

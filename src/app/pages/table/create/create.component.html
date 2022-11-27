@@ -1,0 +1,53 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR 
+        </nb-card-header>
+
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR 
+        </nb-card-header>
+
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Numero de mesa</label>
+                </div>
+                <div class="col-9">
+                    <!-- <input class="form-control" type="text"
+                    [disabled]="!modoCreacion"
+                    [(ngModel)]="request.tableNumber"> -->
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.tableNumber">
+
+                    <p *ngIf="intentoEnvio && request.tableNumber==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Cantidad de Cedulas Inscritas</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.documentsCount">
+
+                    <p *ngIf="intentoEnvio && request.documentsCount==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <button *ngIf="modoCreacion" class="btn btn-primary btn-block"
+                (click)="create()">
+                Crear
+                </button>
+
+                <button *ngIf="!modoCreacion"
+                class="btn btn-primary btn-block" 
+                (click)="update()">
+                Actualizar
+                </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>

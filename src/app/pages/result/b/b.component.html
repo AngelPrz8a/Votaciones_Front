@@ -1,1 +1,17 @@
-<p>b works!</p>
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header>
+            ADMINISTRACIÓN RESULTADOS
+        </nb-card-header>
+        <table class="table">
+            <tr>
+                <th *ngFor="let nombre of nombres">{{nombre}}</th>
+            </tr>
+            <ng-container *ngFor="let resulto of resultados">
+                <tr>
+                    <td>{{resulto["tableNumber"]}}</td>
+                </tr>
+            </ng-container>
+        </table>
+    </nb-card>
+</div>

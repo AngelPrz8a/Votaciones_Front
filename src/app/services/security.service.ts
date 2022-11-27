@@ -37,7 +37,7 @@ export class SecurityService {
    guardarDatosSesion(datos:any){
       let sesionActual = localStorage.getItem("sesion")
       let data: User = {
-        _id:datos.user_id,
+        _id:datos._id,
         token:datos.token,
       }
       localStorage.setItem("sesion",JSON.stringify(data))
@@ -65,4 +65,5 @@ export class SecurityService {
     let sesionActual = localStorage.getItem("sesion")
     return sesionActual
    }
+
 }

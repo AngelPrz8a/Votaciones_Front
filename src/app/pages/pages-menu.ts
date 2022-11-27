@@ -7,30 +7,53 @@ export const MENU_ITEMS: NbMenuItem[] = [
     link: '/pages/home',
   },
   {
+    title: 'Mesas',
+    icon: 'archive-outline',//------------------------
+    link: '/pages/table/index',
+  },
+  {
+    title: 'Partidos',
+    icon: 'people-outline',//------------------------
+    link: '/pages/match/index',
+  },
+  {
+    title: 'Candidatos',
+    icon: 'person-outline',//------------------------
+    link: '/pages/candidate/index',
+  },
+  {
     title: 'Resultados',
-    icon: 'clipboard-outline',
-    children: [
-      {
-        title: 'A',
-        link: '/pages/result/a',
-      },
-      {
-        title: 'B',
-        link: '/pages/result/b',
-      },
-      {
-        title: 'C',
-        link: '/pages/result/c',
-      },
-      {
-        title: 'D',
-        link: '/pages/result/d',
-      },
-    ],
+    icon: 'layers-outline',//------------------------
+    link: '/pages/result/index',
   },
   {
     title: 'Cerrar Sesion',
     icon: 'log-out-outline',
-    link: '/pages/logout',
+    link: '/pages/security/logout',
   },
 ];
+
+
+
+// {
+//   title: 'Resultados',
+//   icon: 'clipboard-outline',
+//   children: [
+//     {
+//       title: 'A',
+//       link: '/pages/result/a',
+//     },
+//     {
+//       title: 'Mesas',
+//       link: '/pages/result/b',
+//     },
+//     {
+//       title: 'Partidos',
+//       link: '/pages/result/c',
+//     },
+//     {
+//       title: 'D',
+//       link: '/pages/result/d',
+//     },
+//   ],
+// },

@@ -11,10 +11,30 @@ export class ResultService {
 
   constructor(private http: HttpClient) { }
 
-  a():Observable<Result[]>{
+  c():Observable<Result[]>{
     //let all =  this.http.get<Result[]>(`${environment.url_apigateway}/result`)
-    let all =  this.http.get<Result[]>(`${environment.url_apigateway}/result`)
-    console.log(all)
-    return all
+    return this.http.get<Result[]>(`${environment.url_apigateway}/result`)
+  }
+
+
+  getAll():Observable<Result[]>{
+    //let all =  this.http.get<Result[]>(`${environment.url_apigateway}/result`)
+    return this.http.get<Result[]>(`${environment.url_apigateway}/result`)
+  }
+
+  get(id:string):Observable<Result>{
+    return this.http.get<Result>(`${environment.url_apigateway}/result/${id}`)
+  }
+
+  create(request:Result){
+    return this.http.post(`${environment.url_apigateway}/result`,request)
+  }
+
+  update(id:string,request:Result){
+    return this.http.put(`${environment.url_apigateway}/result/${id}`,request)
+  }
+
+  delete(id:string){
+    return this.http.delete<Result>(`${environment.url_apigateway}/result/${id}`,)
   }
 }

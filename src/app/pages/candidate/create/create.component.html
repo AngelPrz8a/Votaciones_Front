@@ -1,0 +1,96 @@
+<div class="col-lg-12">
+    <nb-card>
+        <nb-card-header *ngIf="modoCreacion">
+            CREAR 
+        </nb-card-header>
+
+        <nb-card-header *ngIf="!modoCreacion">
+            ACTUALIZAR 
+        </nb-card-header>
+
+        <nb-card-body>
+            <div class="row">
+                <div class="col-3">
+                    <label>Nombre</label>
+                </div>
+                <div class="col-9">
+                    <!-- <input class="form-control" type="text"
+                    [disabled]="!modoCreacion"
+                    [(ngModel)]="request.name"> -->
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.name">
+
+                    <p *ngIf="intentoEnvio && request.name==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Apellido</label>
+                </div>
+                <div class="col-9">
+                    <!-- <input class="form-control" type="text"
+                    [disabled]="!modoCreacion"
+                    [(ngModel)]="request.lastname"> -->
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.lastname">
+
+                    <p *ngIf="intentoEnvio && request.lastname==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Cedula</label>
+                </div>
+                <div class="col-9">
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.identification">
+
+                    <p *ngIf="intentoEnvio && request.identification==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Resolucion</label>
+                </div>
+                <div class="col-9">
+                    <!-- <input class="form-control" type="text"
+                    [disabled]="!modoCreacion"
+                    [(ngModel)]="request.name"> -->
+                    <input class="form-control" type="text"
+                    [(ngModel)]="request.resolution">
+
+                    <p *ngIf="intentoEnvio && request.resolution==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-3">
+                    <label>Partido</label>
+                </div>
+                <div class="col-9" > 
+                    <nb-select class="col-9" [(ngModel)]="request.id_match">
+                        <nb-option *ngFor="let partido of partidos" value='{{partido["_id"]}}' >{{partido['name']}}</nb-option>
+                    </nb-select>
+                    <p *ngIf="intentoEnvio && request.id_match==''">Requerido</p>
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <button *ngIf="modoCreacion" class="btn btn-primary btn-block"
+                (click)="create()">
+                Crear
+                </button>
+
+                <button *ngIf="!modoCreacion"
+                class="btn btn-primary btn-block" 
+                (click)="update()">
+                Actualizar
+                </button>
+            </div>
+        </nb-card-body>
+    </nb-card>
+</div>
+

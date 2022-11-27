@@ -24,6 +24,21 @@ const routes: Routes = [{
     .then(m=>m.ResultModule)
   } ,
   {
+    path:"table",
+    loadChildren:()=>import("./table/table.module")
+    .then(m=>m.TableModule)
+  } ,
+  {
+    path:"match",
+    loadChildren:()=>import("./match/match.module")
+    .then(m=>m.MatchModule)
+  } ,
+  {
+    path:"candidate",
+    loadChildren:()=>import("./candidate/candidate.module")
+    .then(m=>m.CandidateModule)
+  } ,
+  {
     path:"home",
     component:HomeComponent,
   },
@@ -88,7 +103,7 @@ const routes: Routes = [{
     },
     {
       path: '',
-      redirectTo: 'dashboard',
+      redirectTo: 'pages/home',
       pathMatch: 'full',
     },
     {

@@ -20,20 +20,25 @@ export class TokenInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<any>> {
     if(this.servicio.usuarioSesion){
       request = request.clone({
-        // setHeaders:{
-        //   Authorization:"Bearer "+this.servicio.usuarioSesion.token,
-        // }
-        headers: new HttpHeaders({
-          'Content-Type':  'application/json',
-          'Authorization': "Bearer "+this.servicio.usuarioSesion.token,
-          'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
-        })
+        setHeaders:{
+          Authorization:"Bearer "+this.servicio.usuarioSesion.token,
+        }
+        // headers: new HttpHeaders({
+        //   'Content-Type':  'application/json',
+        //   'Authorization': "Bearer "+this.servicio.usuarioSesion.token,
+        //   'Access-Control-Allow-Methods':"DELETE, POST, GET, OPTIONS",
+        // })
       })
     }
     return next.handle(request).pipe(
       catchError((err:HttpErrorResponse)=>{
         if(err.status===401){
-          this.router.navigateByUrl("/pages/home")
+          if(err.error["msg"]==="Token has expired" || err.error["msg"]==="Missing Authorization Header"){
+            this.servicio.logout()
+            this.router.navigateByUrl("/pages/security/login")
+          }else{
+            this.router.navigateByUrl("/pages/home")
+          }
         }
         return throwError(err)
       })

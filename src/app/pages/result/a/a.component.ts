@@ -9,20 +9,10 @@ import { ResultService } from '../../../services/result.service';
 })
 export class AComponent implements OnInit {
 
-   //LISTA TODOS LOS RESULTADOS - PRUEBA -
-   resultados : Result[];
-   nombres:string[]=["votos", "candidato", "mesa"]
-   
-   constructor(private servicio:ResultService) { }
+   constructor() { }
  
    ngOnInit(): void {
-    this.a();
    }
 
-   a():void{
-     this.servicio.a().subscribe(data=>{
-       this.resultados=data
-     })
-   }
 
 }

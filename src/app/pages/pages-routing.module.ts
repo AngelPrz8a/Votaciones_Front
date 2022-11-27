@@ -39,6 +39,11 @@ const routes: Routes = [{
     .then(m=>m.CandidateModule)
   } ,
   {
+    path:"user",
+    loadChildren:()=>import("./user/user.module")
+    .then(m=>m.UserModule)
+  } ,
+  {
     path:"home",
     component:HomeComponent,
   },
